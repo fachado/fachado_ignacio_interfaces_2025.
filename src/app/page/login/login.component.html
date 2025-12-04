@@ -1,0 +1,54 @@
+<script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<header class="header">
+  <h1 class="title">PRUEBAS DE TEMA</h1>
+</header>
+
+<main class="test-page">
+<ion-icon [name]="currentTheme === 'light' ? 'heart-outline' : 'heart-sharp'" class="icon-demo"></ion-icon>
+  <!-- Bloque 3: Iconos -->
+  <div  *ngIf="currentTheme === 'profesional'" >
+    <ion-icon name="heart" class="icon-demo"></ion-icon>
+    <ion-icon name="star" class="icon-demo"></ion-icon>
+    <ion-icon name="flame" class="icon-demo"></ion-icon>
+    <ion-icon name="cloud" class="icon-demo"></ion-icon>
+  </div>
+    <!-- Bloque 2: Botones -->
+  <div class="button-group"  *ngIf="currentTheme === 'profesional'" >
+>
+    <ion-button expand="block">Botón normal</ion-button>
+        <ion-button expand="block">Botón normal</ion-button>
+    <ion-button expand="block">Botón normal</ion-button>
+
+  </div>
+  <!-- Bloque 1: Tarjeta -->
+  <section class="test-card">
+    <h2>Tarjeta de prueba</h2>
+    <p>Este es un texto para ver cómo cambia el tema aplicado a elementos básicos.</p>
+    <ion-button class="btn-tarjeta">Botón en tarjeta</ion-button>
+  </section>
+
+  <div class="button-group"  *ngIf="currentTheme !== 'profesional'" >
+>
+    <ion-button expand="block">Botón normal</ion-button>
+        <ion-button expand="block">Botón normal</ion-button>
+    <ion-button expand="block">Botón normal</ion-button>
+
+  </div>
+
+
+
+ 
+  <!-- Bloque 5: Inputs -->
+  <div class="input-test">
+    <input type="text" placeholder="Texto de prueba">
+    <input type="password" placeholder="Contraseña">
+  </div>
+
+  <!-- Bloque 6: Loader -->
+  <div class="loader-test">
+    <ion-spinner></ion-spinner>
+  </div>
+
+</main>

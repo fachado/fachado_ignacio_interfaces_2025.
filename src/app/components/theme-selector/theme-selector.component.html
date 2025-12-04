@@ -1,0 +1,25 @@
+<!-- Floating wrapper -->
+<div class="ts-wrapper" [class.open]="menuOpen" [attr.aria-hidden]="!menuOpen">
+
+  <!-- FAB principal -->
+  <button class="ts-fab" aria-label="Abrir selector de tema" (click)="toggleMenu()">
+    <!-- podés reemplazar por <img> aquí si querés -->
+    <img src="https://images.vexels.com/media/users/3/160920/isolated/preview/bd0e3ee2f926ecc4911e88eec371c21c-paleta-de-pintura-color-color-plano.png" alt="abrir" *ngIf="!menuOpen" />
+    <img src="https://png.pngtree.com/png-clipart/20250104/original/pngtree-colorful-letters-x-png-image_3362394.png" alt="cerrar" *ngIf="menuOpen" />
+  </button>
+
+  <!-- Mini menú encima del FAB -->
+  <div class="ts-list" *ngIf="menuOpen" role="menu">
+    <button
+      class="ts-item"
+      *ngFor="let t of themes"
+      (click)="selectTheme(t.key)"
+      role="menuitem"
+      title="{{t.label}}"
+    >
+      <div class="thumb" *ngIf="t.img" [style.background-image]="'url(' + t.img + ')'"></div>
+      <span class="label" *ngIf="!t.img">{{ t.label }}</span>
+    </button>
+  </div>
+
+</div>

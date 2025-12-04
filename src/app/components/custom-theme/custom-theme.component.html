@@ -1,0 +1,29 @@
+<div class="custom-container">
+
+  <h2>Configurar tema personalizado</h2>
+
+  <div class="input-group">
+    <label>Color de fondo:</label>
+    <input type="color" [(ngModel)]="customTheme.bgColor">
+  </div>
+
+  <div class="input-group">
+    <label>Color del texto:</label>
+    <input type="color" [(ngModel)]="customTheme.textColor">
+  </div>
+
+  <div class="input-group">
+    <label>Color primario:</label>
+    <input type="color" [(ngModel)]="customTheme.primaryColor">
+  </div>
+
+  <div class="input-group">
+    <label>Color secundario:</label>
+    <input type="color" [(ngModel)]="customTheme.secondaryColor">
+  </div>
+
+  <button ion-button class="apply-btn" (click)="applyCustomTheme()">
+    Aplicar tema personalizado
+  </button>
+
+</div>

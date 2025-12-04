@@ -1,0 +1,7 @@
+<ion-app>
+  <app-volver *ngIf="showNavbar" class="back-button"></app-volver>
+  <app-custom-toast #toast></app-custom-toast>
+  <app-theme-selector *ngIf="!isSplash"></app-theme-selector>
+
+  <ion-router-outlet></ion-router-outlet>
+</ion-app>

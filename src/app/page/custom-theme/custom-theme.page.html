@@ -1,0 +1,155 @@
+<header class="header">
+  <h1 class="title">Tema customizable</h1>
+</header>
+
+<ion-content class="page">
+
+  <div class="editor-grid">
+
+    <!-- PANEL IZQUIERDO: CONTROLES -->
+    <div class="panel controls">
+      <h3>Colores</h3>
+      <div class="row">
+        <label>Primario (naranja)</label>
+        <input type="color" [(ngModel)]="model.naranja" (change)="applyVar('naranja', model.naranja)">
+      </div>
+
+      <div class="row">
+        <label>Secundario (durazno)</label>
+        <input type="color" [(ngModel)]="model.durazno" (change)="applyVar('durazno', model.durazno)">
+      </div>
+
+      <div class="row">
+        <label>Texto primario</label>
+        <input type="color" [(ngModel)]="model.blanco" (change)="applyVar('blanco', model.blanco)">
+      </div>
+
+      <div class="row">
+        <label>Texto secundario</label>
+        <input type="color" [(ngModel)]="model.negro" (change)="applyVar('negro', model.negro)">
+      </div>
+
+      <h3>Tipografía</h3>
+      <div class="row">
+        <label>Fuente</label>
+       <select
+  class="white-select native-select"
+  [(ngModel)]="model.font"
+  (change)="applyVar('font', model.font)"
+>
+  <option value="Poppins, sans-serif">Poppins</option>
+  <option value="Roboto, sans-serif">Roboto</option>
+  <option value="Montserrat, sans-serif">Montserrat</option>
+  <option value="Comic Sans MS, cursive">Comic Sans</option>
+  <option value="Arial, sans-serif">Arial</option>
+</select>
+
+      </div>
+
+<div class="row">
+  <label for="fontSizeRange">Tamaño (px)</label>
+
+  <input 
+    id="fontSizeRange"
+    type="range"
+    min="12"
+    max="28"
+    step="1"
+    [(ngModel)]="model.fontSize"
+    (change)="applyVar('font-size', model.fontSize + 'px')"
+  />
+
+  <div class="small">Actual: {{ model.fontSize }}px</div>
+</div>
+
+
+      <h3>Botones</h3>
+      <div class="row shapes">
+        <label>Forma</label>
+        <div class="shape-buttons">
+          <button [class.active]="model.buttonShape==='rect'" (click)="changeButtonShape('rect')">Rect</button>
+          <button [class.active]="model.buttonShape==='soft'" (click)="changeButtonShape('soft')">Soft</button>
+          <button [class.active]="model.buttonShape==='capsule'" (click)="changeButtonShape('capsule')">Capsule</button>
+          <button [class.active]="model.buttonShape==='round'" (click)="changeButtonShape('round')">Round</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <label>Radius</label>
+        <input type="range" min="0" max="80" [(ngModel)]="model.buttonRadius" (change)="applyVar('boton-radius', model.buttonRadius + 'px')"
+               (input)="model.buttonRadius = model.buttonRadius">
+      </div>
+
+ <h3>Sonido click </h3>
+
+<!-- Selector de sonidos precargados + custom -->
+<select 
+  class="white-select native-select"
+  [(ngModel)]="model.soundClick"
+  (change)="applyCustomSound(model.soundClick)"
+>
+  <option value="light">Click Light</option>
+  <option value="dark">Click Dark</option>
+  <option value="naif">Click Naif</option>
+  <option value="argentina">Click Argentina</option>
+  <option value="profesional">Click Profesional</option>
+  <option value="custom">Customizado</option>
+  <option value="burbuja">Burbuja</option>
+  <option value="campana">Campana</option>
+</select>
+
+
+<h3>Imágenes</h3> <div class="row"> 
+  <label>Fondo (jpg/png)</label>
+   <input type="file" accept="image/*" (change)="onImageChange($event,'bg-image')"> 
+  </div>
+   <div class="row"> 
+    <label>Cabecera</label>
+     <input type="file" accept="image/*" (change)="onImageChange($event,'header-image')"> 
+    </div> <div class="row">
+       <label>Imagen botón</label> 
+       <input type="file" accept="image/*" (change)="onImageChange($event,'button-image')"> </div>
+
+
+
+  
+
+      <div class="row actions">
+        <ion-button expand="block" color="primary" (click)="applyAll()">Aplicar Todo</ion-button>
+        <ion-button expand="block" color="tertiary" (click)="exportTheme()">Exportar / Descargar</ion-button>
+        <input type="file" accept="application/json" (change)="importThemeFile($event)" />
+      </div>
+
+    </div>
+
+    <!-- PANEL DERECHO: PREVIEW -->
+    <div class="panel preview">
+      <div class="screen-preview" [style.background]="model.bgImage ? '' : model.blanco"
+           [style.backgroundImage]="model.bgImage" [style.color]="model.negro" [style.fontFamily]="model.font" [style.fontSize]="model.fontSize + 'px'">
+
+        <header class="preview-header" [style.backgroundImage]="model.headerImage">
+          <h2>Mi App — Previsualizacion</h2>
+        </header>
+
+        <main class="preview-body">
+          <p class="preview-text">{{preview.sampleText}}</p>
+
+          <div class="preview-buttons">
+            <ion-button class="circle-btn"
+                    >
+              {{preview.primaryBtnLabel}}
+            </ion-button >
+
+          </div>
+
+        </main>
+
+      </div>
+    </div>
+
+  </div>
+    <ion-buttons >
+      <ion-button (click)="exportTheme()">Exportar</ion-button>
+      <ion-button color="medium" (click)="resetAll()">Reiniciar</ion-button>
+    </ion-buttons>
+</ion-content>

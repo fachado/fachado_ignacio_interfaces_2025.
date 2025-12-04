@@ -1,0 +1,135 @@
+/* ================
+   ESTILOS GLOBALES
+   ================ */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: var(--blanco);
+  background: var(--fondo, #222);
+  font-family: var(--font-family-global, sans-serif);
+}
+
+
+
+.title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--blanco);
+}
+
+/* ================
+   CONTENEDOR GENERAL
+   ================ */
+.test-page {
+  flex-grow: 1;
+  min-height: calc(100vh - 60px);
+  background: linear-gradient(to top, var(--blanco), var(--naranja));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30px 16px;
+  overflow-y: auto; 
+}
+
+/* ================
+   TARJETA
+   ================ */
+.test-card {
+  width: 100%;
+  margin: 15px;
+  max-width: 420px;
+  padding: 20px;
+  border-radius: var(--redondeado);
+  background: var(--naranja);
+  box-shadow: 0 0 20px rgba(0,0,0,0.25);
+  text-align: center;
+}
+
+.test-card h2 {
+  margin-bottom: 10px;
+  color: var(--blanco);
+}
+
+.test-card p {
+  margin-bottom: 15px;
+  color: var(--blanco);
+}
+
+/* ================
+   BOTONES DE PRUEBA
+   ================ */
+.button-group {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+      align-items: center;
+  gap: 12px;
+}
+
+
+/* ================
+   ICONOS
+   ================ */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  font-size: 32px;
+  color: var(--naranja);
+}
+
+/* ================
+   IMAGEN
+   ================ */
+.image-test img {
+  width: 250px;
+  height: 250px;
+  border-radius: var(--redondeado);
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* ================
+   INPUTS
+   ================ */
+.input-test {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 380px;
+}
+
+.input-test input {
+  padding: 12px 15px;
+  border: 2px solid var(--blanco);
+  border-radius: var(--redondeado);
+  background: var(--durazno);
+  color: var(--blanco);
+  font-size: 1rem;
+}
+
+.input-test input::placeholder {
+  color: var(--blanco);
+}
+
+/* ================
+   SPINNER
+   ================ */
+.loader-test {
+  margin-top: 10px;
+}
+.btn-tarjeta{
+  --background:var(--durazno);
+}
+ion-spinner {
+  width: 40px;
+  height: 40px;
+  color: var(--naranja);
+}

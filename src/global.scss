@@ -1,0 +1,640 @@
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/* Ionic Dark Mode base (system) */
+@import '@ionic/angular/css/palettes/dark.system.css';
+
+*{
+   font-family: 'Poppins', sans-serif;
+}
+
+.header {
+  background-image: var(--header-image);
+  background-color: var(--naranja);
+  background-size: cover;          // llena todo el header
+  background-repeat: no-repeat;    // evita repetición
+  background-position: center;     // centra la imagen
+  padding: 20px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  padding-top: 3dvh;
+  z-index: 10;
+}
+.title{
+  color: var(--blanco);
+}
+.google-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #ffffff;
+  color: #db4437; /* rojo del logo de Google */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+:root {
+  // Colores (valores por defecto)
+  --naranja: #FFA552;
+  --blanco: #fafafa;
+  --rojo: #f25c66;
+  --negro: #2b2b2b;
+  --verde-menta: #a3d9a5;
+  --durazno: #f6b88c;
+  --verde-fuerte: #88c999;
+
+  // Medidas
+  --redondeado: 20px;
+  --altura-header:5dvh;
+
+  // Variables globales de tema (fallback)
+  --font-family-global: 'Poppins', sans-serif;
+  --font-size-global: 16px;
+
+  /* imágenes / íconos / sonido (fallback vacíos) */
+  --bg-image: none;
+  --header-image: none;
+  --button-image: none;
+  --icon-pack: 'default';
+  --sound-click: '';
+}
+ion-fab {
+  z-index: 9999 !important;
+  position: fixed !important;
+}
+
+/* --- Tus estilos actuales --- */
+.custom-spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(252, 117, 28, 0.425);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+
+  img {
+    width: 120px;
+    height: 120px;
+    animation: spin-logo 1.2s linear infinite;
+  }
+}
+
+@keyframes spin-logo {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.custom-toast { --background: #333; --color: white; font-size: 14px; text-align: center; }
+.custom-toast-warning { --background: #f0ad4e; --color: black; }
+.custom-toast-error { --background: #d9534f; --color: white; }
+.custom-toast-success { --background: #5cb85c; --color: white; }
+
+.no-products-card {
+  max-width: 400px;
+  margin: 50px auto;
+  text-align: center;
+  --background: var(--naranja);
+  color: var(--blanco);
+  font-weight: bold;
+  font-size: 1.3rem;
+  border-radius: var(--redondeado);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* ============================
+   BLOQUE: TEMAS DINÁMICOS
+   Cambiamos el tema con: document.body.setAttribute('theme', 'profesional')
+   ============================ */
+
+/* Tema Profesional */
+body[theme="profesional"] {
+  --naranja: #2151a5;
+  --durazno: #4992aa; /* durazno elegante, balancea el azul */
+  --blanco: #f2f2f2;
+  --negro: #0b0f14;
+  --rojo: #e63946;
+  --verde-menta: #1dd3b0;
+
+  --redondeado: 10px;
+  --altura-header: 5dvh;
+
+  --font-family-global: 'Roboto', sans-serif;
+  --font-size-global: 16px;
+
+  --bg-image: url('/assets/themes/profesional/bg.jpg');
+  --header-image: url('/assets/themes/profesional/header.png');
+  --button-image: url('/assets/themes/profesional/button.png');
+  --icon-pack: 'profesional';
+  --sound-click: '/assets/themes/profesional/click.mp3';
+}
+
+/* Tema Argentina */
+body[theme="argentina"] {
+  --naranja: #74acdf;
+  --durazno: #44aef5; /* pastel para acompañar celeste */
+  --blanco: #ffffff;
+  --negro: #003087;
+  --rojo: #ff4081;
+  --verde-menta: #9ad1ff;
+
+  --redondeado: 25px;
+  --font-family-global: 'Montserrat', sans-serif;
+  --font-size-global: 17px;
+  --header-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhRnI8F6mxq9N4WAeWdqi6XbBVDJKCqCdYow&s');
+
+
+  --bg-image: url('/assets/themes/argentina/bg.png');
+  --button-image: url('/assets/themes/argentina/button.png');
+  --icon-pack: 'argentina';
+  --sound-click: '/assets/themes/argentina/click.mp3';
+}
+
+/* Tema Naif (infantil) */
+body[theme="naif"] {
+  --naranja: #ffb8d1;
+  --durazno: #ffdeb5; /* suave infantil */
+  --blanco: #fff5ee;
+  --negro: #333333;
+  --rojo: #ff6f91;
+  --verde-menta: #c1ffd7;
+
+  --redondeado: 90px;
+  --font-family-global: 'Comic Sans MS', cursive;
+  --font-size-global: 18px;
+
+  --bg-image: url('/assets/themes/naif/bg.jpg');
+  --header-image: url('/assets/themes/naif/header.png');
+  --button-image: url('/assets/themes/naif/button.png');
+  --icon-pack: 'naif';
+  --sound-click: '/assets/themes/naif/click.mp3';
+    --header-image: url('https://as2.ftcdn.net/jpg/04/78/95/63/1000_F_478956377_dIFCJohNNLXmVbmBI58xeHtVViB9IFmd.jpg');
+
+}
+
+/* Modo oscuro */
+body[theme="dark"] {
+  --naranja: #ffa552;
+  --durazno: #d88c5a; /* durazno oscuro para coherencia */
+  --blanco: #121212;
+  --negro: #000000;
+  --rojo: #ff5a5f;
+  --verde-menta: #1ea896;
+
+  --font-family-global: 'Poppins', sans-serif;
+  --font-size-global: 16px;
+
+  --bg-image: none;
+  --header-image: none;
+  --icon-pack: 'outline';
+  --sound-click: '/assets/themes/dark/click.mp3';
+}
+
+/* Modo claro */
+body[theme="light"] {
+  --naranja: #FFA552;
+  --blanco: #fafafa;
+  --rojo: #f25c66;
+  --negro: #2b2b2b;
+  --verde-menta: #a3d9a5;
+  --durazno: #f6b88c;
+  --verde-fuerte: #88c999;
+  --font-family-global: 'Poppins', sans-serif;
+  --font-size-global: 16px;
+  --bg-image: none;
+  --icon-pack: 'default';
+  --sound-click: '/assets/themes/light/click.mp3';
+}
+
+/* Tema Custom */
+body[theme="custom"] {
+  --naranja: var(--custom-naranja, #FFA552);
+  --durazno: var(--custom-durazno, #FFCC99);
+  --blanco: var(--custom-blanco, #FAFAFA);
+  --negro: var(--custom-negro, #2B2B2B);
+  --rojo: var(--custom-rojo, #F25C66);
+  --verde-menta: var(--custom-menta, #A3D9A5);
+
+  --redondeado: var(--custom-boton-radius);
+  --boton-padding: var(--custom-boton-padding, 14px 20px);
+  --boton-bg: var(--custom-boton-bg, #FFA552);
+  --boton-text-color: var(--custom-boton-text-color, #FFFFFF);
+
+  --font-family-global: var(--custom-font, 'Poppins, sans-serif');
+  --font-size-global: var(--custom-font-size, 16px);
+
+  --bg-image: var(--custom-bg-image, none);
+  --header-image: var(--custom-header-image, none);
+  --button-image: var(--custom-button-image, none);
+  --icon-pack: var(--custom-icon-pack, 'default');
+  --sound-click: var(--custom-sound-click, '');
+}
+
+/* ============================================
+   Formas dinámicas de botón para el tema custom
+============================================ */
+body[theme="naif"]{
+  .title{
+  color: var(--negro);
+}
+
+}
+body[theme="custom"] ion-button{
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  --border-radius: var(--redondeado);
+
+  color: var(--blanco);
+  border-radius: var(--redondeado);
+  font-family: var(--font-family-global);
+  font-size: var(--font-size-global);
+}
+body[theme="custom"] ion-button::part(native) {
+  background-image: var(--button-image); /* si hay imagen, se usa */
+  background-color: var(--naranja);      /* fallback si no hay imagen */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+
+html, body, ion-app, ion-content {
+  font-family: var(--font-family-global);
+  font-size: var(--font-size-global);
+  background: var(--blanco);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  color: var(--negro);
+}
+
+/* Header / barra superior */
+ion-header {
+  --background: linear-gradient(0deg, transparent, transparent), var(--header-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Botones globales */
+ion-button {
+    --background: var(--naranja);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  --border-radius: var(--redondeado);
+
+  color: var(--blanco);
+  border-radius: var(--redondeado);
+  font-family: var(--font-family-global);
+  font-size: var(--font-size-global);
+}
+
+ion-card {
+  background: rgba(255,255,255,0.7);
+  border-radius: calc(var(--redondeado) / 1.2);
+  color: var(--negro);
+}
+
+
+/* Pequeños helpers */
+.rounded {
+  border-radius: var(--redondeado);
+}
+/* ============================================
+   POSICIÓN GLOBAL DE BOTONES SEGÚN EL TEMA
+   ============================================ */
+
+/* POSICIÓN NORMAL (tema por defecto) */
+ion-button,
+button,
+.btn {
+  transition: all 0.3s ease-in-out;
+  margin-top: 10px;
+}
+
+/* ========== TEMA PROFESIONAL ==========
+   Botones más compactos y alineados a la derecha
+   ==================/* ================================================
+   PROFESIONAL → Cápsulas modernas
+================================================ */
+body[theme="profesional"] ion-button,
+body[theme="profesional"] button {
+  width: 85%;
+  margin: 1px auto;
+  border-radius: 40px;    /* cápsula */
+  font-weight: 600;
+  transform: none;
+}
+
+/* ================================================
+   ARGENTINA → Rectangulares suaves y centrados
+================================================ */
+body[theme="argentina"] ion-button,
+body[theme="argentina"] button {
+  width: 90%;
+  margin: 12px auto;
+  border-radius: 8px;      /* rectangulares suaves */
+  transform: none;
+  text-align: center;
+}
+
+/* ================================================
+   NAIF → Botones circulares infantiles
+================================================ */
+body[theme="naif"] ion-button,
+body[theme="naif"] button {
+  width: 100%!important;
+  height: 40px !important;
+  border-radius: 100% !important; /* círculo */
+  font-size: 0.85rem;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* un toque divertido */
+  transform: scale(1.1);
+}
+/* Contenedores centrados solo en tema NAIF */
+
+
+/* ================================================
+   DARK → Botones Dock pegados abajo
+================================================ */
+body[theme="dark"] ion-button,
+body[theme="dark"] button {
+  width: 100% !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  position: relative;
+  bottom: -2vh;
+  text-align: center;
+}
+
+/* ================================================
+   LIGHT → Botones con esquinas recortadas
+================================================ */
+body[theme="light"] ion-button,
+body[theme="light"] button {
+  width: 100% !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  position: relative;
+  bottom: -2vh;
+  text-align: center;
+}
+
+/* ===============================================
+   ⬤ ESTILOS DEPENDIENTES DEL TEMA SOLO PARA BOTONES
+   =============================================== */
+
+/* ⬤ PROFESIONAL: orden clásico — 3 rectangulares, 2 columnas circulares */
+body[theme="profesional"] .main-access-buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+body[theme="profesional"] .circle-button-grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 7px;
+}
+
+
+/* ⬤ ARGENTINA: más amplio — rectangulares en 2 columnas */
+body[theme="argentina"] .main-access-buttons {
+  display: grid;
+  grid-template-columns: repeat(1, 3fr);
+  gap: 0px;
+}
+
+body[theme="argentina"] .circle-button-grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0px;
+}
+body[theme="argentina"] .quick-access-wrapper{
+    gap: 0px;
+
+}
+
+/* ⬤ NAIF (infantil): todo grande — 1 columna rectangulares + círculos en 2 */
+body[theme="naif"] .main-access-buttons {
+  display: grid;
+  grid-template-columns: repeat(1, 2fr);
+  gap: 2px;
+  transform: scale(1.03);
+}
+
+body[theme="naif"] .circle-button-grid {
+  grid-template-columns: repeat(1, 2fr);
+  gap: 2px;
+}
+
+
+/* ⬤ DARK: estilo compacto — rectangulares en 1 columna pero más juntos */
+body[theme="dark"] .main-access-buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+
+body[theme="dark"] .circle-button-grid {
+  grid-template-columns: repeat(2, 2fr);
+  gap: 6px;
+}
+
+
+/* ⬤ LIGHT: ordenado — rectangulares 1 columna, círculos 3 columnas */
+body[theme="light"] .main-access-buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+body[theme="light"] .circle-button-grid {
+ grid-template-columns: repeat(2, 2fr);
+  gap: 6px;
+}
+/* ==========================================
+   EXCEPCIÓN: Este botón JAMÁS cambia con el tema
+   ========================================== */
+ion-button .logout-button  {
+all: unset !important;     /* Limpia todos los estilos heredados */
+
+  position: fixed !important;
+  top: 12px!important;
+  right: 12px !important;
+
+  z-index: 9999 !important;
+  color: #ffffff !important;
+  --color: #ffffff !important;
+  --background: transparent !important;
+
+  font-weight: 200 !important;
+}
+
+ion-button.back-button ion-icon {
+  margin-right: 9px !important;
+}
+
+body[theme="custom"] .logout-button {
+all: unset !important;     /* Limpia todos los estilos heredados */
+
+  position: fixed !important;
+  top: 4.5% !important;
+  right: -1% !important;
+
+  z-index: 9999 !important;
+  color: #ffffff !important;
+  --color: #ffffff !important;
+  --background: transparent !important;
+
+  font-weight: 200 !important;
+}
+
+body[theme="argentina"] .logout-button {
+all: unset !important;     /* Limpia todos los estilos heredados */
+
+  position: fixed !important;
+  top: 4.5% !important;
+  right: -1% !important;
+
+  z-index: 9999 !important;
+  color: #ffffff !important;
+  --color: #ffffff !important;
+  --background: transparent !important;
+
+  font-weight: 200 !important;
+}
+body[theme="profesional"] .logout-button, .back-button {
+all: unset !important;     /* Limpia todos los estilos heredados */
+
+  position: fixed !important;
+  top: 4.5% !important;
+  right: -1% !important;
+
+  z-index: 9999 !important;
+  color: #ffffff !important;
+  --color: #ffffff !important;
+  --background: transparent !important;
+
+  font-weight: 200 !important;
+}
+body[theme="dark"] .back-button {
+all: unset !important;     /* Limpia todos los estilos heredados */
+
+  position: fixed !important;
+  top: 5% !important;
+  right: 0% !important;
+
+  z-index: 9999 !important;
+  color: #000000 !important;
+  --color: #000000 !important;
+  --background: transparent !important;
+
+  font-weight: 200 !important;
+}
+
+body[theme="light"] .back-button {
+all: unset !important;     /* Limpia todos los estilos heredados */
+
+  position: fixed !important;
+  top: 5% !important;
+  right: 0% !important;
+
+  z-index: 9999 !important;
+  color: #ffffff !important;
+  --color: #ffffff !important;
+  --background: transparent !important;
+
+  font-weight: 200 !important;
+}
+body[theme="light"] .logout-button {
+all: unset !important;     /* Limpia todos los estilos heredados */
+
+  position: fixed !important;
+  top: 5% !important;
+  right: 0% !important;
+
+  z-index: 9999 !important;
+  color: #ffffff !important;
+  --color: #ffffff !important;
+  --background: transparent !important;
+
+  font-weight: 200 !important;
+}
+body[theme="dark"] .logout-button {
+all: unset !important;     /* Limpia todos los estilos heredados */
+
+  position: fixed !important;
+  top: 5% !important;
+  right: 0% !important;
+
+  z-index: 9999 !important;
+  color: #000000 !important;
+  --color: #000000 !important;
+  --background: transparent !important;
+
+  font-weight: 200 !important;
+}
+body[theme="naif"] .logout-button {
+    all: unset !important;     /* Limpia todos los estilos heredados */
+
+  position: fixed !important;
+  top: 4.5% !important;
+  right: -4% !important;
+
+  z-index: 9999 !important;
+  color: #000000 !important;
+  --color: #000000 !important;
+  --background: transparent !important;
+
+  font-weight: 200 !important;
+}
+body[theme="naif"] .back-button{
+    all: unset !important;     /* Limpia todos los estilos heredados */
+
+  position: fixed !important;
+  top: 4% !important;
+  right: 0% !important;
+
+  z-index: 9999 !important;
+  color: #000000 !important;
+  --color: #000000 !important;
+  --background: transparent !important;
+
+  font-weight: 200 !important;
+}
+
+ion-button.back-button ion-icon {
+  margin-right: 9px !important;
+} 

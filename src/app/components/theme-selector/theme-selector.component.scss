@@ -1,0 +1,92 @@
+:host {
+  position: fixed;
+  top: 18px;    /* antes era bottom */
+  left: 18px;   /* antes era right */
+  z-index: 99999;
+  display: block;
+}
+
+/* Wrapper keeps FAB + list together */
+.ts-wrapper {
+  position: relative;
+  display: inline-block;
+  pointer-events: auto;
+}
+
+/* FAB */
+.ts-fab {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--naranja);
+  color: var(--blanco);
+  border: none;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 6px;
+}
+
+/* Ensure img fits nicely */
+.ts-fab img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+/* The floating mini-menu (stacked downwards now) */
+.ts-list {
+  position: absolute;
+  left: 0;          /* se alinea al FAB */
+  top: 70px;        /* ahora aparece debajo del FAB */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 8px;
+  background: rgba(10, 10, 12, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+  backdrop-filter: blur(6px);
+  min-width: 64px;
+}
+
+/* Each button in the mini-menu */
+.ts-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--blanco);
+  min-width: 48px;
+  justify-content: center;
+}
+
+/* thumbnail as background div (no <img> required) */
+.thumb {
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+/* fallback label style */
+.label {
+  font-size: 13px;
+  padding: 4px 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 6px;
+}
+
+/* small screens make menu wider */
+@media (max-width: 480px) {
+  .ts-list { left: 0; top: 80px; min-width: 120px; }
+  .label { font-size: 14px; }
+}
